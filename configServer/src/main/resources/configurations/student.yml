@@ -1,0 +1,28 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8082/eureka
+
+
+server:
+  port: 8084
+spring:
+  application:
+    name: student
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/micro-student
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0

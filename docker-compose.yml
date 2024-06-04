@@ -1,0 +1,31 @@
+services:
+  mydb:
+    image: mysql:latest
+    container_name: mysql_database_latest
+    environment:
+      - MYSQL_DATABASE = docker-testing?createDatabaseIfNotExists
+      - MYSQL_USER =  root
+      - MYSQL_PASSWORD =  root
+      - MYSQL_ROOT_PASSWORD =  root
+    restart: unless-stopped
+    volumes:
+      - ./data:/var/lib/mysql
+    ports:
+      - 3333:3306
+    networks:
+      - mysql
+
+  zipkin:
+    container_name: zipkin
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - zipkin
+
+networks:
+  mysql:
+    driver: bridge
+  zipkin:
+    driver: bridge
+

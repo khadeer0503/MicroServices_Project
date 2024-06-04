@@ -1,0 +1,27 @@
+eureka:
+  client:
+    register-with-eureka: false
+server:
+  port: 8081
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: student
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/v1/student/**
+        - id: school
+          uri: http://localhost:8085
+          predicates:
+            - Path=/api/v1/school/**
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
