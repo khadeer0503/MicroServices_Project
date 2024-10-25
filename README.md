@@ -3,9 +3,9 @@ The project consists of an API Gateway, Config Server, Discovery Server, and two
 
 ![](C:\Users\Khadeer\Desktop\MicroServices_Project\diagram.png)
 
-# **Project Components
+# Project Components
 
-### API Gateway**
+### API Gateway
 
 The API Gateway serves as the single entry point for all client requests, managing and routing them to the appropriate microservices.
 
